@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-test
+  labels:
+    name: deployment-label
+spec:
+  template:
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+    metadata:
+      name: nginx-container
+      labels:
+        tag: web-server
+  selector:
+    matchLabels:
+      tag: web-server
+  replicas: 3
+
+
