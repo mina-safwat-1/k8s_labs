@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: loadbalancer-test
+spec:
+  type: LoadBalancer
+  ports:
+    - nodePort : 30005
+      port: 80
+      targetPort: 80
+  selector:
+    tag: web-server
