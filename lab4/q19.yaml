@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-server
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+      readinessProbe:
+        httpGet:
+          path: /health
+          port: 80
